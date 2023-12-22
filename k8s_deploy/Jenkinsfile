@@ -33,12 +33,10 @@ userRemoteConfigs: [[url: 'https://github.com/Samarinnayak/demo.git']])
 } }
 }
      stage('Deploy to Kubernetes') {
+             stage('Deploy to Kubernetes') {
             steps {
-                script {
-                // Replace your generated pipeline script here
-                   kubeconfig(credentialsId: 'kube_config', serverUrl: 'https://kubernetes.docker.internal:6443') {
-                    def kubeConfig = readFile 'kubernetes-config.yaml'
+                withKubeConfig([credentialsId: 'docker_hub_cred', serverUrl: 'https://my-kubernetes-cluster.com']) {
                     sh "kubectl apply -f kubernetes-config.yaml"
-} }
-} }
-} }
+                }
+            } }
+} }}
