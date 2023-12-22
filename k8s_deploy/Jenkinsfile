@@ -32,13 +32,13 @@ userRemoteConfigs: [[url: 'https://github.com/Samarinnayak/demo.git']])
                 }
 } }
 }
-     stage('Deploy to Kubernetes') {
-            steps {
-                script {
-                // Replace your generated pipeline script here
-                    withKubeConfig([credentialsId: 'docker_hub_cred', serverUrl: 'https://my-kubernetes-cluster.com']) {
-                    sh "kubectl apply -f kubernetes-config.yaml"
-                } 
-				}
-} }
+//      stage('Deploy to Kubernetes') {
+//             steps {
+//                 script {
+//                 // Replace your generated pipeline script here
+//                     withKubeConfig([credentialsId: 'docker_hub_cred', serverUrl: 'https://my-kubernetes-cluster.com']) {
+//                     sh "kubectl apply -f kubernetes-config.yaml"
+//                 } 
+// 				}
+// } }
 } }
