@@ -9,7 +9,7 @@ userRemoteConfigs: [[url: 'https://github.com/Samarinnayak/demo.git']])
     } }
     stage('Build and Package') {
         steps {
-            withMaven(maven: 'todo-maven') {
+            withMaven(maven: 'maven') {
                 sh 'mvn clean install'
               echo 'successful Build and Package'
             }
